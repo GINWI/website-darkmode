@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SESI 6</title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <a id="home" onclick="reRender()">HOME</a>
+            <a id="mode" onclick="darkMode()">MODE DARK</a>
+            <a id="modesea" onclick="modeSea()">MODE SEA</a>
+            <a id="modegreen" onclick="modeGreen()">MODE GREEN</a>
+            <a id="modepink" onclick="modePink()">MODE PINK</a>
+            <a id="modebanteng" onclick="modeBanteng()">MODE BANTENG</a>
+            <a id="modemerahputih" onclick="modeMerahPutih()">MODE MERAH PUTIH</a>
+            <a id="modepisang" onclick="modePisang()">MODE PISANG</a>
+            <a id="modeipin" onclick="modeIpin()">MODE IPIN</a>
+            <a id="modeupin" onclick="modeUpin()">MODE UPIN</a>
+        </nav>
+        <h1>SESI 6 CUY</h1>
+        <p class="info"  id="info"></p>
+    </div>
+    <!-- initializing function script -->
+    <script>
+        let body = document.body;
+        let info = document.getElementById("info");
+        let mode = document.getElementById("mode");
+        let modesea = document.getElementById("modesea");
+        let modegreen = document.getElementById("modegreen")
+        let modepink = document.getElementById("modepink")
+        let modebanteng = document.getElementById("modebanteng")
+        let modemerahputih = document.getElementById("modemerahputih")
+        let modepisang = document.getElementById("modepisang")
+        let modeipin = document.getElementById("modeipin")
+        let modeupin = document.getElementById("modeupin")
+        let home = document.getElementById("home");
+        const darkLimit = 5;
+        let darkCounter = 0;
+        let darkRemainingLeft;
+
+        function darkMode() {
+            if (darkRemainingLeft == 1) {
+                mode.style.display ="none"
+                modesea.style.display = "none"
+                modegreen.style.display = "none"
+                modepink.style.display = "none"
+                modebanteng.style.display = "none"
+                modemerahputih.style.display = "none"
+                modepisang.style.display = "none"
+                modeipin.style.display = "none"
+                modeupin.style.display = "none"
+                info.textContent = "Jatah Fitur Dark Mode Anda Sudah Habis"
+                home.textContent = "Restart"
+                return;
+            }
+            
+            darkCounter += 1;
+            darkRemainingLeft = darkLimit-darkCounter;
+
+            // render ke info element
+            info.textContent =`Darkmode dipakai ${darkCounter}x, Tersisa ${darkRemainingLeft}`
+            
+            body.classList.toggle("dark");
+
+            // dark-light 
+            if (body.classList.contains('dark')) {
+                mode.textContent = "MODE-LIGHT"
+            } else {
+                mode.textContent= "MODE-DARK"
+            }
+        }
+
+        function reRender() {
+            location.reload();
+        }
+
+        function modeSea() {
+                body.classList.toggle('sea');
+            }
+
+            function modeGreen() {
+                body.classList.toggle('green');
+            }
+
+            function modePink() {
+                body.classList.toggle('pink');
+            }
+        
+            function modeBanteng() {
+                body.classList.toggle('banteng');
+            }
+
+            function modeMerahPutih() {
+                body.classList.toggle('merahputih');
+            }
+
+            function modePisang() {
+                body.classList.toggle('pisang');
+            }
+
+            function modeIpin() {
+                body.classList.toggle('ipin');
+            }
+
+            function modeUpin() {
+                body.classList.toggle('upin');
+            }
+    </script>
+
+</body>
+
+</html>
